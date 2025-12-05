@@ -9,6 +9,7 @@ interface CursorState {
   isHovering: boolean;
   isClicking: boolean;
   isHidden: boolean;
+  isVisible: boolean;
 }
 
 const CustomCursor = () => {
@@ -18,9 +19,14 @@ const CustomCursor = () => {
     isHovering: false,
     isClicking: false,
     isHidden: false,
+    isVisible: false,
   });
 
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
+    setIsMounted(true);
+
     // Update cursor position
     const updateMousePosition = (e: MouseEvent) => {
       setCursor(prev => ({
@@ -28,16 +34,25 @@ const CustomCursor = () => {
         x: e.clientX,
         y: e.clientY,
         isHidden: false,
+        isVisible: true,
       }));
     };
 
     // Handle mouse leave/enter window
     const handleMouseLeave = () => {
-      setCursor(prev => ({ ...prev, isHidden: true }));
+      setCursor(prev => ({ 
+        ...prev, 
+        isHidden: true,
+        isVisible: false 
+      }));
     };
 
     const handleMouseEnter = () => {
-      setCursor(prev => ({ ...prev, isHidden: false }));
+      setCursor(prev => ({ 
+        ...prev, 
+        isHidden: false,
+        isVisible: true 
+      }));
     };
 
     // Click handlers
@@ -49,11 +64,10 @@ const CustomCursor = () => {
       setCursor(prev => ({ ...prev, isClicking: false }));
     };
 
-    // Detect hoverable elements - FIXED TYPE ERROR
+    // Detect hoverable elements
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       
-      // Check if element is interactive
       const isInteractiveElement = 
         target.tagName === 'BUTTON' || 
         target.tagName === 'A' || 
@@ -61,6 +75,7 @@ const CustomCursor = () => {
         target.tagName === 'TEXTAREA' ||
         target.tagName === 'SELECT' ||
         target.getAttribute('role') === 'button' ||
+        target.hasAttribute('data-cursor-hover') ||
         target.closest('button, a, [data-cursor-hover]') !== null ||
         getComputedStyle(target).cursor === 'pointer';
       
@@ -74,7 +89,7 @@ const CustomCursor = () => {
       setCursor(prev => ({ ...prev, isHovering: false }));
     };
 
-    // Event listeners
+    // Add event listeners
     window.addEventListener("mousemove", updateMousePosition);
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
@@ -85,8 +100,6 @@ const CustomCursor = () => {
 
     // Hide default cursor
     document.body.style.cursor = 'none';
-    // Only disable user-select if you're sure you want this behavior
-    // document.body.style.userSelect = 'none';
 
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
@@ -98,7 +111,6 @@ const CustomCursor = () => {
       document.removeEventListener("mouseenter", handleMouseEnter);
       
       document.body.style.cursor = 'auto';
-      // document.body.style.userSelect = 'auto';
     };
   }, []);
 
@@ -107,15 +119,15 @@ const CustomCursor = () => {
       x: cursor.x - 16,
       y: cursor.y - 16,
       scale: 1,
-      opacity: cursor.isHidden ? 0 : 1,
-      backgroundColor: "green",
+      opacity: cursor.isHidden || !cursor.isVisible ? 0 : 1,
+      backgroundColor: "var(--primary)",
       mixBlendMode: "difference" as const,
     },
     hover: {
       x: cursor.x - 24,
       y: cursor.y - 24,
       scale: 1.5,
-      opacity: cursor.isHidden ? 0 : 1,
+      opacity: cursor.isHidden || !cursor.isVisible ? 0 : 1,
       backgroundColor: "var(--accent)",
       mixBlendMode: "difference" as const,
     },
@@ -123,7 +135,7 @@ const CustomCursor = () => {
       x: cursor.x - 16,
       y: cursor.y - 16,
       scale: 0.8,
-      opacity: cursor.isHidden ? 0 : 1,
+      opacity: cursor.isHidden || !cursor.isVisible ? 0 : 1,
       backgroundColor: "var(--destructive)",
       mixBlendMode: "difference" as const,
     }
@@ -135,11 +147,14 @@ const CustomCursor = () => {
     return "default";
   };
 
-  // Performance optimization - only render if needed
-  if (typeof window === 'undefined') return null;
+  // Don't render on server or if not mounted
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <>
+      {/* Main cursor */}
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] backdrop-filter backdrop-invert"
         variants={variants}
@@ -149,17 +164,17 @@ const CustomCursor = () => {
           stiffness: 500,
           damping: 28,
           mass: 0.5,
-          opacity: { type: "tween", duration: 0.2 }
+          opacity: { duration: 0.1 }
         }}
       />
       
-      {/* Optional trailing dot */}
+      {/* Trailing dot */}
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference"
         animate={{
           x: cursor.x - 4,
           y: cursor.y - 4,
-          opacity: cursor.isHidden ? 0 : 1,
+          opacity: cursor.isHidden || !cursor.isVisible ? 0 : 1,
         }}
         transition={{
           type: "spring",
@@ -169,8 +184,8 @@ const CustomCursor = () => {
         }}
       />
       
-      {/* Optional ring effect on click */}
-      {cursor.isClicking && (
+      {/* Click ripple effect */}
+      {cursor.isClicking && cursor.isVisible && (
         <motion.div
           className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9998] border-2 border-destructive"
           initial={{ scale: 1, opacity: 0.7 }}

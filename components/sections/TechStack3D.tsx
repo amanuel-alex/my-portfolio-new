@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Html, Float, Sparkles, Stars } from '@react-three/drei';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 import { 
@@ -112,7 +112,7 @@ const categories = [
   },
 ];
 
-// Tech Cube Component (more visual than spheres)
+// Tech Cube Component
 function TechCube({ tech, position, color, isActive, onClick }: any) {
   const meshRef = useRef<THREE.Mesh>(null);
   
@@ -213,6 +213,42 @@ function CategoryHexagon({ category, position, isActive, onClick }: any) {
 export default function DiverseTechStack() {
   const [activeCategory, setActiveCategory] = useState('fullstack');
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  const [animationValues, setAnimationValues] = useState<Array<{
+    y: number[];
+    x: number[];
+    rotate: number[];
+    duration: number;
+    delay: number;
+    top: string;
+    left: string;
+  }>>([]);
+
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // Generate deterministic animation values on client only
+    const values = categories.map((category, i) => {
+      // Use category ID as seed for deterministic random values
+      const seed = category.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const pseudoRandom = (index: number) => {
+        const x = Math.sin(seed + index) * 10000;
+        return x - Math.floor(x);
+      };
+      
+      return {
+        y: [0, 10 + pseudoRandom(1) * 20, 0],
+        x: [0, pseudoRandom(2) * 10, 0],
+        rotate: [0, 180, 360],
+        duration: 15 + pseudoRandom(3) * 10,
+        delay: i * 0.5,
+        top: `${20 + pseudoRandom(4) * 60}%`,
+        left: `${10 + pseudoRandom(5) * 80}%`,
+      };
+    });
+    
+    setAnimationValues(values);
+  }, []);
 
   const activeCategoryData = categories.find(cat => cat.id === activeCategory);
   const activeTech = activeCategoryData?.tech || [];
@@ -245,12 +281,30 @@ export default function DiverseTechStack() {
   const techPositions = getTechPositions(activeTech.length);
   const categoryPositions = getCategoryPositions(categories.length);
 
+  if (!isMounted) {
+    return (
+      <div className="relative py-20 overflow-hidden">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 text-primary font-mono text-sm mb-4">
+            <span className="w-12 h-px bg-primary" />
+            02. Diverse Expertise
+            <span className="w-12 h-px bg-primary" />
+          </div>
+          <h2 className="font-mono text-4xl md:text-6xl font-bold mb-6 text-foreground">
+            Multi-Domain <span className="text-primary">Skillset</span>
+          </h2>
+        </div>
+        <div className="relative h-[500px] md:h-[600px] rounded-2xl bg-card/50 animate-pulse" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative py-20 overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Animated Background Elements - FIXED: Remove random values */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
       {/* Header */}
@@ -520,31 +574,29 @@ export default function DiverseTechStack() {
         </motion.div>
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {categories.map((category, i) => (
-          <motion.div
-            key={category.id}
-            animate={{
-              y: [0, Math.random() * 30, 0],
-              x: [0, Math.random() * 20, 0],
-              rotate: [0, 180, 360]
-            }}
-            transition={{
-              duration: 15 + Math.random() * 10,
-              repeat: Infinity,
-              ease: "linear",
-              delay: i * 0.5
-            }}
-            className="absolute w-2 h-2 rounded-full"
-            style={{ 
-              top: `${20 + Math.random() * 60}%`,
-              left: `${10 + Math.random() * 80}%`,
-              backgroundColor: category.color + '30'
-            }}
-          />
-        ))}
-      </div>
+      {/* Floating Elements - FIXED: Only render on client with deterministic values */}
+      {isMounted && animationValues.length > 0 && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {categories.map((category, i) => (
+            <motion.div
+              key={category.id}
+              animate={animationValues[i]}
+              transition={{
+                duration: animationValues[i].duration,
+                repeat: Infinity,
+                ease: "linear",
+                delay: animationValues[i].delay
+              }}
+              className="absolute w-2 h-2 rounded-full"
+              style={{ 
+                top: animationValues[i].top,
+                left: animationValues[i].left,
+                backgroundColor: category.color + '30'
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

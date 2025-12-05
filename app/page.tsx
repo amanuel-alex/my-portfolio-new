@@ -1,3 +1,4 @@
+// app/page.tsx - Fixed version
 "use client";
 
 import Header from '@/components/ui/Header';
@@ -6,12 +7,9 @@ import About from '@/components/sections/About';
 import Experience from '@/components/sections/Experience';
 import Work from '@/components/sections/Work';
 import Contact from '@/components/sections/Contact';
-import TechStack3D from '@/components/sections/TechStack3D'; // The 3D Tech Stack
- // The Scroll-Driven Video
-
+import TechStack3D from '@/components/sections/TechStack3D';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '@/lib/animation';
-
 
 export default function HomePage() {
   return (
@@ -30,17 +28,11 @@ export default function HomePage() {
         
         {/* A visually impressive break to showcase your tech stack */}
         <section id="tech" className="relative h-screen w-full flex items-center justify-center">
-            <TechStack3D />
+          <TechStack3D />
         </section>
 
         <Experience />
-        
-        {/* Your work, now with flippable cards */}
         <Work />
-
-      
-    
-
         <Contact />
       </motion.main>
     </AnimatePresence>

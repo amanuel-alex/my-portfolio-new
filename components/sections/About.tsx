@@ -133,7 +133,7 @@ const About = () => {
             <div className="relative bg-gradient-to-br from-card to-background/50 border border-border/50 rounded-2xl p-2 overflow-hidden">
               <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
                 <Image
-                  src="/aman-final.jpg"
+                  src="/aman-c.png"
                   alt="developer image"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -439,7 +439,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <div className="mb-50 relative bg-gradient-to-br from-card/50 to-background/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 md:p-12 ">
+          <div className=" mb-120 relative bg-gradient-to-br from-card/50 to-background/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 md:p-12 ">
             <div className="text-5xl text-primary/20 mb-4">"</div>
             <p className="text-2xl md:text-3xl font-medium text-foreground mb-6 leading-relaxed">
               I don't just build products; I craft experiences that tell stories, 

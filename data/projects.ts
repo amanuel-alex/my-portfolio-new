@@ -7,7 +7,7 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
-  image?: string;
+ 
   icon?: React.ReactNode;
   tech: string[];
   githubUrl: string;
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     title: 'E-commerce Platform',
     description: 'Full-stack e-commerce solution with real-time inventory',
     longDescription: 'A modern e-commerce platform built with Next.js 14, featuring real-time inventory management, payment integration, and admin dashboard.',
-    image: '/projects/ecommerce.jpg',
+   
     tech: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Prisma', 'PostgreSQL'],
     githubUrl: 'https://github.com/yourusername/ecommerce',
     liveUrl: 'https://demo-store.vercel.app',
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     title: 'AI Code Assistant',
     description: 'Intelligent code completion and debugging tool',
     longDescription: 'An AI-powered code assistant that helps developers write better code with intelligent suggestions and automated debugging.',
-    image: '/projects/ai-assistant.jpg',
+    
     tech: ['React', 'Python', 'FastAPI', 'OpenAI API', 'Redis', 'Docker'],
     githubUrl: 'https://github.com/yourusername/ai-code-assistant',
     liveUrl: 'https://ai-code-assistant.vercel.app',
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     title: 'Health Tracker App',
     description: 'Mobile app for fitness and health monitoring',
     longDescription: 'A comprehensive health tracking application that monitors fitness metrics, nutrition, and sleep patterns with data visualization.',
-    image: '/projects/health-tracker.jpg',
+   
     tech: ['React Native', 'Firebase', 'Chart.js', 'HealthKit', 'Redux'],
     githubUrl: 'https://github.com/yourusername/health-tracker',
    
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     title: 'Dev Collaboration Tool',
     description: 'Real-time collaboration platform for developers',
     longDescription: 'A platform for developers to collaborate on code in real-time with video chat, code editing, and project management features.',
-    image: '/projects/collab-tool.jpg',
+    
     tech: ['Next.js', 'Socket.io', 'WebRTC', 'MongoDB', 'Tailwind CSS'],
     githubUrl: 'https://github.com/yourusername/dev-collab',
     liveUrl: 'https://dev-collab.vercel.app',

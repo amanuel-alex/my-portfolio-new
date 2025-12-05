@@ -13,12 +13,12 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    company: "Tech Innovations Inc.",
+    company: "Ministry of Innovation and Technology.",
     position: "Lead Full Stack Developer",
     duration: "2023 - Present",
-    location: "San Francisco, CA",
+    location: "Addis Ababa , Ethiopia",
     logo: "/logos/tech-innovations.png",
-    website: "https://techinnovations.com",
+    
     contract: "Full-time",
     description: [
       "Lead development of scalable web applications serving 100K+ monthly users",
@@ -39,7 +39,7 @@ export const experiences: Experience[] = [
     duration: "2021 - 2023",
     location: "Remote",
     logo: "/logos/creative-media.png",
-    website: "https://creativemedia.studio",
+    
     contract: "Contract",
     description: [
       "Produced and edited 150+ video projects for corporate clients and creators",

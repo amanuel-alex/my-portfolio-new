@@ -26,7 +26,7 @@ const Experience = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16 relative z-10"
       >
-        <div className="inline-flex items-center gap-2 text-primary font-mono text-sm mb-4">
+        <div className="inline-flex items-center gap-2 text-primary font-mono text-sm mb-4 mt-80">
           <span className="w-12 h-px bg-primary" />
           02. Experience
           <span className="w-12 h-px bg-primary" />
@@ -124,21 +124,7 @@ const Experience = () => {
                       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                         <div className="flex items-start gap-4">
                           {/* Company Logo */}
-                          <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-card border border-border/50 p-2">
-                            {exp.logo ? (
-                              <Image
-                                src={exp.logo}
-                                alt={`${exp.company} logo`}
-                                fill
-                                className="object-contain"
-                                sizes="64px"
-                              />
-                            ) : (
-                              <div className="w-full h-full flex items-center justify-center bg-primary/10 text-primary rounded-lg">
-                                <FaBuilding className="w-8 h-8" />
-                              </div>
-                            )}
-                          </div>
+                          
                           
                           <div>
                             <div className="flex items-center gap-2 flex-wrap">
@@ -167,7 +153,7 @@ const Experience = () => {
                         </div>
                         
                         {/* Mobile Date */}
-                        <div className="md:hidden">
+                        <div className="md:hidden ">
                           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
                             <FaCalendarAlt className="w-3 h-3 text-primary" />
                             <span className="text-sm font-medium text-primary">{exp.duration}</span>
