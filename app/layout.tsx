@@ -6,6 +6,7 @@ import { Toaster } from 'sonner';
 
 // import GenerativeBackground from '@/components/ui/GenerativeBackground'
 import CustomCursor from '@/components/ui/CustomCursor'
+import Navigation from '@/components/Navigation';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,17 +29,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* 
-            The generative background and custom cursor are client-side components.
-            Placing them here ensures they render on every page behind the main content.
-          */}
-          {/* <GenerativeBackground /> */}
           <CustomCursor />
           <Toaster position="top-right" richColors />
           {/* 
             The main content of your application (defined in page.tsx) is rendered here.
-          */}
+            */}
           {children}
+            <Navigation />
         </ThemeProvider>
       </body>
     </html>

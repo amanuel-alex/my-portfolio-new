@@ -133,8 +133,8 @@ const About = () => {
             <div className="relative bg-gradient-to-br from-card to-background/50 border border-border/50 rounded-2xl p-2 overflow-hidden">
               <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden">
                 <Image
-                  src="/aman.jpg"
-                  alt="Amanuel Alemayehu"
+                  src="/aman-final.jpg"
+                  alt="developer image"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"

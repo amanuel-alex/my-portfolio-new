@@ -5,6 +5,7 @@ import { socials } from '@/data/socials';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaCode, FaServer, FaMobile, FaCloud } from 'react-icons/fa';
 import { slideInFromLeft, fadeIn } from '@/lib/animation';
+import Contact from './Contact';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -128,20 +129,7 @@ const Hero = () => {
           animate="visible"
           transition={{ delay: 1.2 }}
         >
-          {socials.map((social) => (
-            <motion.a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200 text-2xl"
-              aria-label={social.name}
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {getIcon(social.icon)}
-            </motion.a>
-          ))}
+         
         </motion.div>
 
         {/* Call to Action */}
