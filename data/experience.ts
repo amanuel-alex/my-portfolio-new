@@ -58,7 +58,7 @@ export const experiences: Experience[] = [
     company: "Mobile First Solutions",
     position: "Flutter Developer",
     duration: "2020 - 2021",
-    location: "New York, NY",
+    location: "Haramaya, Ethiopia",
     logo: "/logos/mobile-first.png",
     contract: "Full-time",
     description: [
@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
     company: "Data Insights Corp",
     position: "Data Analyst & SharePoint Specialist",
     duration: "2019 - 2020",
-    location: "Chicago, IL",
+    location: "Remote",
     logo: "/logos/data-insights.png",
     description: [
       "Managed SharePoint portals for enterprise clients",

@@ -252,7 +252,7 @@ const Work = () => {
         transition={{ delay: 0.5 }}
       >
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/amanuel-alex"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-full font-medium hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
