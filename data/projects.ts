@@ -52,11 +52,11 @@ export const projects: Project[] = [
   {
     id: '3',
     title: 'Project Management System',
-    description: 'A collaborative project management system for planning and tracking work across teams.',
-    longDescription: 'A project management system for planning and tracking work across teams, enabling users to create projects, define tasks, assign owners, set priorities/deadlines, and monitor progress in a centralized workspace.',
+    description: 'A collaborative project management system built with Next.js, Prisma, and Supabase for planning and tracking work across teams.',
+    longDescription: 'A full-stack project management system for planning and tracking work across teams, enabling users to create projects, define tasks, assign owners, set priorities/deadlines, and monitor progress in a centralized workspace. Built with modern technologies including Next.js, Prisma ORM, PostgreSQL, and Supabase for authentication and real-time features.',
     image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=600&fit=crop',
-    tech: ['Laravel', 'PHP', 'MySQL'],
-    githubUrl: 'https://github.com/amanuel-alex/laravel_quize_app',
+    tech: ['React', 'Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Supabase', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/amanuel-alex',
     category: 'Full Stack',
   },
   {
