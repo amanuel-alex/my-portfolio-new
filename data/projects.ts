@@ -29,101 +29,44 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'E-commerce Platform',
-    description: 'Full-stack e-commerce solution with real-time inventory',
-    longDescription: 'A modern e-commerce platform built with Next.js 14, featuring real-time inventory management, payment integration, and admin dashboard.',
-    image: '/projects/ecommerce.jpg',
-    tech: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Prisma', 'PostgreSQL'],
+    title: 'E-tickets Platform',
+    description: 'A full-stack event ticketing platform with a React web app and Node.js/Express REST APIs.',
+    longDescription: 'Built a full-stack event ticketing platform with a React (Vite) web app, Node.js/Express REST APIs, and PostgreSQL persistence, supporting event discovery, bookings, and digital ticket issuance.',
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
+    tech: ['React', 'Node.js', 'Express.js', 'PostgreSQL', 'Docker', 'Redis', 'Flutter'],
     githubUrl: 'https://github.com/amanuel-alex',
-    liveUrl: 'https://demo-store.vercel.app',
+    liveUrl: 'https://et-ticket-platform.vercel.app',
     category: 'Full Stack',
-    features: [
-      'Real-time inventory updates',
-      'Secure payment processing',
-      'Admin dashboard',
-      'Responsive design',
-      'SEO optimized'
-    ],
-    githubStats: {
-      stars: 128,
-      forks: 34,
-      watchers: 12
-    },
     deployment: 'vercel',
-    status: 'active'
   },
   {
     id: '2',
-    title: 'AI Code Assistant',
-    description: 'Intelligent code completion and debugging tool',
-    longDescription: 'An AI-powered code assistant that helps developers write better code with intelligent suggestions and automated debugging.',
-    image: '/projects/ai-assistant.jpg',
-    tech: ['React', 'Python', 'FastAPI', 'OpenAI API', 'Redis', 'Docker'],
-    githubUrl: 'https://github.com/amanuel-alex',
-    liveUrl: 'https://ai-code-assistant.vercel.app',
-    category: 'AI/ML',
-    features: [
-      'Real-time code suggestions',
-      'Automated bug detection',
-      'Multi-language support',
-      'VS Code extension',
-      'Custom training models'
-    ],
-    githubStats: {
-      stars: 256,
-      forks: 89,
-      watchers: 45
-    },
-    deployment: 'vercel',
-    status: 'active'
+    title: 'Issue Tracker',
+    description: 'A full-stack issue tracking web app built with Next.js and TypeScript.',
+    longDescription: 'Built a full-stack issue tracking web app using Next.js (App Router) and TypeScript, with a modern UI and responsive layouts for managing tickets and workflows.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/amanuel-alex/issue_tracker_fullstact_web',
+    category: 'Full Stack',
   },
   {
     id: '3',
-    title: 'Health Tracker App',
-    description: 'Mobile app for fitness and health monitoring',
-    longDescription: 'A comprehensive health tracking application that monitors fitness metrics, nutrition, and sleep patterns with data visualization.',
-    image: '/projects/health-tracker.jpg',
-    tech: ['React Native', 'Firebase', 'Chart.js', 'HealthKit', 'Redux'],
-    githubUrl: 'https://github.com/amanuel-alex',
-   
-    category: 'Mobile',
-    features: [
-      'Real-time health metrics',
-      'Data visualization',
-      'Workout plans',
-      'Nutrition tracking',
-      'Sleep analysis'
-    ],
-    githubStats: {
-      stars: 89,
-      forks: 23,
-      watchers: 18
-    },
-    status: 'active'
+    title: 'Project Management System',
+    description: 'A collaborative project management system for planning and tracking work across teams.',
+    longDescription: 'A project management system for planning and tracking work across teams, enabling users to create projects, define tasks, assign owners, set priorities/deadlines, and monitor progress in a centralized workspace.',
+    image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=600&fit=crop',
+    tech: ['Laravel', 'PHP', 'MySQL'],
+    githubUrl: 'https://github.com/amanuel-alex/laravel_quize_app',
+    category: 'Full Stack',
   },
   {
     id: '4',
-    title: 'Dev Collaboration Tool',
-    description: 'Real-time collaboration platform for developers',
-    longDescription: 'A platform for developers to collaborate on code in real-time with video chat, code editing, and project management features.',
-    image: '/projects/collab-tool.jpg',
-    tech: ['Next.js', 'Socket.io', 'WebRTC', 'MongoDB', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/amanuel-alex',
-    liveUrl: 'https://dev-collab.vercel.app',
-    category: 'Real-time',
-    features: [
-      'Real-time code collaboration',
-      'Video/audio chat',
-      'Project management',
-      'Git integration',
-      'Team workspaces'
-    ],
-    githubStats: {
-      stars: 167,
-      forks: 42,
-      watchers: 31
-    },
-    deployment: 'vercel',
-    status: 'active'
+    title: 'Motorbike Parcel Delivery App',
+    description: 'A Flutter-based mobile app for motorbike parcel delivery services.',
+    longDescription: 'A mobile application built with Flutter for a motorbike parcel delivery service. It allows users to request pickups, track deliveries in real-time, and manage their shipments.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+    tech: ['Flutter', 'Dart', 'Firebase'],
+    githubUrl: 'https://github.com/amanuel-alex/Motorbike-Parcel-Delivery-App',
+    category: 'Mobile',
   }
 ];

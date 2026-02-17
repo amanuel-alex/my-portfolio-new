@@ -31,11 +31,11 @@ const Experience = () => {
           02. Experience
           <span className="w-12 h-px bg-primary" />
         </div>
-        
+
         <h2 className="font-mono text-4xl md:text-6xl font-bold mb-6 text-foreground">
           Professional <span className="text-primary">Journey</span>
         </h2>
-        
+
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           A timeline of my professional growth and contributions
         </p>
@@ -53,11 +53,10 @@ const Experience = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setActiveExp(index)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap ${
-                  activeExp === index
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap ${activeExp === index
                     ? 'bg-primary/10 border-primary text-primary shadow-lg'
                     : 'bg-card/50 border-border text-muted-foreground hover:text-foreground hover:bg-card'
-                } border`}
+                  } border`}
               >
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                   <FaBuilding className="w-4 h-4" />
@@ -85,17 +84,15 @@ const Experience = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-start gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`relative flex flex-col md:flex-row items-start gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-8 md:left-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background transform -translate-x-1/2 z-10" />
-                
+
                 {/* Timeline Date */}
-                <div className={`hidden md:block flex-1 ${
-                  index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'
-                }`}>
+                <div className={`hidden md:block flex-1 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'
+                  }`}>
                   <div className="sticky top-24">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
                       <FaCalendarAlt className="w-3 h-3 text-primary" />
@@ -105,27 +102,25 @@ const Experience = () => {
                 </div>
 
                 {/* Experience Card */}
-                <div className={`flex-1 ${
-                  index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'
-                }`}>
+                <div className={`flex-1 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'
+                  }`}>
                   <motion.div
                     whileHover={{ y: -5 }}
-                    className={`group relative overflow-hidden rounded-2xl border transition-all ${
-                      activeExp === index
+                    className={`group relative overflow-hidden rounded-2xl border transition-all ${activeExp === index
                         ? 'border-primary/30 bg-primary/5'
                         : 'border-border/50 bg-card/50'
-                    }`}
+                      }`}
                   >
                     {/* Glow Effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
+
                     <div className="relative p-6 md:p-8">
                       {/* Card Header */}
                       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                         <div className="flex items-start gap-4">
                           {/* Company Logo */}
-                          
-                          
+
+
                           <div>
                             <div className="flex items-center gap-2 flex-wrap">
                               <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
@@ -151,7 +146,7 @@ const Experience = () => {
                             </div>
                           </div>
                         </div>
-                        
+
                         {/* Mobile Date */}
                         <div className="md:hidden ">
                           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
@@ -183,23 +178,6 @@ const Experience = () => {
                               >
                                 {tech}
                               </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Achievements */}
-                      {exp.achievements && exp.achievements.length > 0 && (
-                        <div className="mb-6">
-                          <h4 className="text-sm font-medium text-foreground mb-3">Key Achievements</h4>
-                          <div className="grid gap-2">
-                            {exp.achievements.map((achievement, i) => (
-                              <div key={i} className="flex items-start gap-2 p-3 bg-success/5 rounded-lg border border-success/10">
-                                <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
-                                  <span className="text-xs text-success">✓</span>
-                                </div>
-                                <p className="text-sm text-success-foreground">{achievement}</p>
-                              </div>
                             ))}
                           </div>
                         </div>

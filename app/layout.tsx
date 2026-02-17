@@ -87,7 +87,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0a0a0a" />
       
       </head>
-      <body className={`${inter.className} bg-background text-foreground`}>
+      <body className={`${inter.className} bg-background text-foreground`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
