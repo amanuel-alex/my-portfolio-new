@@ -1,24 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio (New)
+
+This is a modern, responsive personal portfolio website built to showcase my projects, skills, and experience. It is designed with a focus on clean UI/UX and performance, making it easy for visitors to browse my work and get in touch.
+
+## Features
+
+- Fully responsive design for all devices
+- Project and experience sections with project details
+- “About Me” and skills showcase
+- Contact form or contact information
+- Easily customizable structure
+
+## Demo
+
+Check out the live portfolio at: [your-live-demo-link-here]
+
+## Technologies Used
+
+- [React.js/Next.js/Vue.js/HTML/CSS/TypeScript] (update based on your tech stack)
+- [Other libraries or frameworks]
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/amanuel-alex/my-portfolio-new.git
+   cd my-portfolio-new
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Start the development server**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Open in your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) (or the port shown).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
+
+- Update your details in the relevant config or data files.
+- Add or update project entries and descriptions.
+- Adjust styling as you like!
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+Feel free to contribute or open issues for suggestions or bugs.
 
 ## Learn More
 
